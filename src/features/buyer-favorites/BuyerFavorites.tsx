@@ -1,0 +1,15 @@
+import { Heart, MapPin, Search, ShieldCheck, UserRound } from 'lucide-react'
+import { useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { FavoriteButton } from './FavoriteButton'
+import { getFavoriteFarmerNames, getFavoriteProductIds, getFavoriteProducts, toggleFavoriteFarmer } from './service'
+import './buyer-favorites.css'
+
+export function BuyerFavorites() {
+    const [query, setQuery] = useState('')
+    const [farmers, setFarmers] = useState(getFavoriteFarmerNames())
+    const [favoriteIds, setFavoriteIds] = useState(getFavoriteProductIds())
+    const products = useMemo(() => getFavoriteProducts().filter((product) => favoriteIds.includes(product.id)), [favoriteIds])
+    const filtered = useMemo(() => products.filter((product) => `${product.name} ${product.farmer} ${product.location}`.toLowerCase().includes(query.toLowerCase())), [products, query])
+    return <section className="favorites-page"><div className="favorites-header"><div><p className="eyebrow">BUYER WORKSPACE · SAVED</p><h1>Your trusted <i>shortlist.</i></h1><p>Keep the farmers and harvests you want to return to.</p></div><Link className="outline-button" to="/marketplace">Explore marketplace</Link></div><div className="favorites-toolbar"><label><Search size={16} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search saved products or farmers" /></label><span>{filtered.length} saved products</span></div><div className="favorites-content">    <div><div className="favorites-section-heading"><h2>Saved products</h2><span>Ready to compare and buy</span></div>{filtered.length ? <div className="favorites-grid">{filtered.map((product) => <article className="favorite-card" key={product.id}><Link to={`/marketplace/${product.id}`} className="favorite-image"><img src={product.image} alt={product.name} /></Link><FavoriteButton productId={product.id} onChange={(saved) => { if (!saved) setFavoriteIds((items) => items.filter((item) => item !== product.id)) }} /><div><div className="favorite-card-title"><Link to={`/marketplace/${product.id}`}><b>{product.name}</b></Link><span>₹{product.price}/{product.unit}</span></div><p><MapPin size={12} /> {product.location}</p><small><ShieldCheck size={12} /> {product.farmer}</small></div></article>)}</div> : <div className="empty-state"><Heart size={28} /><b>No saved products match your search.</b><Link className="primary-button" to="/marketplace">Find a harvest</Link></div>}</div><aside className="saved-farmers"><div className="favorites-section-heading"><h2>Saved farmers</h2><span>Trusted sources</span></div>{farmers.length ? farmers.map((farmer) => <div className="saved-farmer" key={farmer}><span><UserRound size={16} /></span><div><b>{farmer}</b><small><ShieldCheck size={11} /> Verified source</small></div><button aria-label={`Remove ${farmer} from saved farmers`} onClick={() => { toggleFavoriteFarmer(farmer); setFarmers((items) => items.filter((item) => item !== farmer)) }}>Remove</button></div>) : <p className="muted">Save a farmer from their product details to see them here.</p>}</aside></div></section>
+}

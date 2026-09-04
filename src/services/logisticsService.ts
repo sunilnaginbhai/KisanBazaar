@@ -1,0 +1,1 @@
+export const logisticsService = { async getShipments() { return { success: true, data: [{ id: 'SHP-2048', route: 'Nashik → Mumbai', status: 'IN_TRANSIT', eta: 'Today, 6:00 PM' }], message: 'Shipments loaded' } } }

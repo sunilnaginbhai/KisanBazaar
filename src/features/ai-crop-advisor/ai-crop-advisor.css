@@ -1,0 +1,227 @@
+.crop-advisor-page{max-width:1180px;margin:0 auto;padding:58px 5.5% 70px}.crop-advisor-hero{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:40px}.crop-advisor-hero h1{margin:0;color:var(--green);font-size:clamp(44px,6vw,76px);line-height:.98;letter-spacing:-3px}.crop-advisor-hero p:not(.eyebrow){max-width:530px;color:var(--muted);font-size:14px;line-height:1.6}.advisor-badge{display:flex;gap:10px;align-items:center;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--green)}.advisor-badge span{display:grid;gap:4px}.advisor-badge small{color:var(--muted);font-size:10px}.advisor-layout{display:grid;grid-template-columns:320px 1fr;gap:18px}.advisor-form,.advisor-empty,.recommendation-card,.advisor-chart,.profit-card,.advisor-metrics article{border:1px solid var(--line);border-radius:15px;background:#fff}.advisor-form{display:grid;gap:14px;padding:20px;height:max-content}.advisor-form-heading h2{margin:0;color:var(--green);font-size:23px}.advisor-form label{display:grid;gap:6px;color:var(--green);font-size:11px;font-weight:700}.advisor-form input,.advisor-form select{width:100%;padding:11px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:12px}.advisor-form .primary-button{justify-content:center;border:0}.advisor-form button:disabled{opacity:.7;cursor:wait}.advisor-note{color:var(--muted);font-size:10px;line-height:1.4}.spin{animation:advisor-spin 1s linear infinite}@keyframes advisor-spin{to{transform:rotate(360deg)}}.advisor-results{display:grid;gap:14px}.advisor-empty{display:grid;place-items:center;align-content:center;min-height:430px;padding:35px;text-align:center;color:var(--muted)}.advisor-empty svg{color:var(--lime)}.advisor-empty h2{margin:15px 0 5px;color:var(--green);font-size:21px}.advisor-empty p{max-width:330px;font-size:12px;line-height:1.5}.recommendation-card{display:flex;justify-content:space-between;align-items:center;padding:21px;background:var(--green);color:#fff}.recommendation-card h2{margin:0 0 7px;font-size:30px}.recommendation-card span{display:flex;align-items:center;gap:5px;font-size:11px;color:#dce9bd}.confidence-ring{display:grid;place-items:center;width:72px;height:72px;border:7px solid var(--lime);border-radius:50%;font-weight:700}.advisor-metrics{display:grid;grid-template-columns:1fr 1fr;gap:12px}.advisor-metrics article{display:grid;gap:7px;padding:15px}.advisor-metrics svg{color:var(--orange)}.advisor-metrics small{color:var(--muted);font-size:10px}.advisor-metrics b{color:var(--green);font-size:12px;line-height:1.4}.advisor-chart{padding:18px}.advisor-chart h3{margin:0;color:var(--green);font-size:15px}.profit-card{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:17px}.profit-card span{display:grid;gap:5px}.profit-card small{color:var(--muted);font-size:10px}.profit-card b{color:var(--green);font-size:14px}.profit-card b.profit{color:#5d985f}@media(max-width:760px){.crop-advisor-page{padding-left:5%;padding-right:5%}.crop-advisor-hero{align-items:start;flex-direction:column}.advisor-layout{grid-template-columns:1fr}.advisor-metrics{grid-template-columns:1fr}.profit-card{grid-template-columns:1fr}.advisor-empty{min-height:280px}}
+
+/* Refined workflow surface */
+.crop-advisor-page {
+  max-width: 1280px;
+  padding: clamp(48px, 7vw, 92px) clamp(20px, 5vw, 72px) 100px;
+}
+
+.crop-advisor-hero {
+  align-items: end;
+  margin-bottom: 52px;
+}
+
+.crop-advisor-hero h1 {
+  max-width: 700px;
+  color: var(--ink-strong);
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(48px, 6vw, 82px);
+  font-weight: 800;
+  letter-spacing: -0.07em;
+}
+
+.crop-advisor-hero h1 i {
+  color: var(--brand);
+}
+
+.crop-advisor-hero p:not(.eyebrow) {
+  margin-top: 24px;
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.advisor-badge {
+  min-width: 235px;
+  padding: 15px 17px;
+  border-color: var(--border-soft);
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(26, 67, 45, 0.06);
+}
+
+.advisor-badge svg {
+  color: var(--brand);
+}
+
+.advisor-badge b {
+  font-size: 12px;
+}
+
+.advisor-layout {
+  grid-template-columns: minmax(280px, 340px) minmax(0, 1fr);
+  gap: 24px;
+}
+
+.advisor-form,
+.advisor-empty,
+.recommendation-card,
+.advisor-chart,
+.profit-card,
+.advisor-metrics article {
+  border-color: var(--border-soft);
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(26, 67, 45, 0.06);
+}
+
+.advisor-form {
+  gap: 16px;
+  padding: 24px;
+}
+
+.advisor-form-heading {
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.advisor-form-heading h2 {
+  color: var(--ink-strong);
+  font-size: 24px;
+  letter-spacing: -0.03em;
+}
+
+.advisor-form label {
+  color: var(--ink-strong);
+  font-size: 12px;
+}
+
+.advisor-form input,
+.advisor-form select {
+  min-height: 44px;
+  padding: 10px 12px;
+  border-color: var(--border-soft);
+  border-radius: 9px;
+  color: var(--ink-strong);
+  outline: none;
+}
+
+.advisor-form input:focus,
+.advisor-form select:focus {
+  border-color: #78a984;
+  box-shadow: 0 0 0 3px rgba(87, 143, 98, 0.12);
+}
+
+.advisor-form .primary-button {
+  min-height: 46px;
+  border-radius: 9px;
+  background: var(--brand);
+}
+
+.advisor-note {
+  color: var(--ink-soft);
+  font-size: 11px;
+}
+
+.advisor-empty {
+  min-height: 470px;
+  padding: 44px;
+  background: #fbfdf9;
+}
+
+.advisor-empty svg {
+  color: var(--accent);
+}
+
+.advisor-empty h2 {
+  color: var(--ink-strong);
+  font-size: 23px;
+  letter-spacing: -0.03em;
+}
+
+.advisor-empty p {
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.recommendation-card {
+  padding: 26px;
+  background: var(--brand-dark);
+}
+
+.recommendation-card h2 {
+  font-size: 34px;
+  letter-spacing: -0.04em;
+}
+
+.confidence-ring {
+  width: 82px;
+  height: 82px;
+  border-color: #f1b25b;
+}
+
+.advisor-metrics {
+  gap: 14px;
+}
+
+.advisor-metrics article {
+  padding: 18px;
+}
+
+.advisor-metrics article:hover {
+  border-color: #b9d4bd;
+  transform: translateY(-2px);
+}
+
+.advisor-metrics svg {
+  color: var(--brand);
+}
+
+.advisor-metrics b {
+  color: var(--ink-strong);
+}
+
+.advisor-chart {
+  padding: 22px;
+}
+
+.advisor-chart h3 {
+  color: var(--ink-strong);
+  font-size: 16px;
+}
+
+.profit-card {
+  padding: 20px;
+}
+
+.profit-card b {
+  color: var(--ink-strong);
+}
+
+@media (max-width: 760px) {
+  .advisor-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .advisor-layout,
+  .advisor-form,
+  .advisor-results,
+  .advisor-empty,
+  .advisor-chart,
+  .recommendation-card,
+  .profit-card {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .crop-advisor-page {
+    padding-top: 44px;
+  }
+
+  .crop-advisor-hero {
+    margin-bottom: 34px;
+  }
+
+  .crop-advisor-hero h1 {
+    font-size: clamp(44px, 14vw, 64px);
+  }
+
+  .advisor-badge {
+    width: 100%;
+  }
+
+  .advisor-empty h2,
+  .advisor-empty p {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+}

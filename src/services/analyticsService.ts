@@ -1,0 +1,1 @@
+export const analyticsService = { async getPlatformMetrics() { return { success: true, data: { farmers: 2400, buyers: 15000, products: 12, orders: 142, activeShipments: 8 }, message: 'Analytics loaded' } } }

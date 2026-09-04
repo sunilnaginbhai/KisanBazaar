@@ -1,0 +1,1 @@
+export const paymentService = { async processPayment(amount: number, method: 'UPI' | 'CARD' | 'COD') { await new Promise((resolve) => setTimeout(resolve, 500)); return { success: true, data: { amount, method, reference: `PAY-${Date.now()}` }, message: 'Payment simulated successfully' } } }
