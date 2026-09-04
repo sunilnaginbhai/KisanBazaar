@@ -105,10 +105,15 @@ Run the frontend and API together with `npm run dev:full`. Never place database
 credentials in frontend code or commit `.env` files. Set `SEED_DEMO_USERS=true`
 only for development to create the three existing demo accounts.
 
-The browser client sends credentials to `/api/auth/*`; Vite proxies those
-requests to `http://localhost:4000` during development. For a separately
-deployed API, set `VITE_API_URL` to the API base URL (for example,
-`https://api.example.com/api`) and configure `CLIENT_ORIGIN` on the server.
+The browser client sends credentials to `/api/auth/*`. During local development,
+the Vite proxy can target the local API. The production frontend uses the
+configured Render API at `https://kisanbazaar-1.onrender.com/api`; if you deploy
+the frontend with a different API, set `VITE_API_URL` to that API base URL and
+configure `CLIENT_ORIGIN` on the server to the deployed frontend origin.
+
+For a Render Node web service, use `npm install` as the build command and
+`npm start` as the start command. Set `MONGODB_URI`, `JWT_SECRET`, and
+`CLIENT_ORIGIN` in the Render environment variables.
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
