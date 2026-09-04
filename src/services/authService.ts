@@ -1,18 +1,11 @@
 import type { UserRole } from '../types/api'
+import { apiRequest } from './api'
 
 export type Session = { name: string; email: string; role: UserRole }
 type AuthResponse<T> = { success: boolean; data: T; message: string }
 
-const apiBase = import.meta.env.VITE_API_URL ?? 'https://kisanbazaar-1.onrender.com/api'
-
 async function requestAuth<T>(path: string, options?: RequestInit): Promise<{ response: Response; data: AuthResponse<T> }> {
-    const response = await fetch(`${apiBase}${path}`, {
-        ...options,
-        credentials: 'include',
-        headers: { 'Content-Type': 'application/json', ...options?.headers },
-    })
-    const data = await response.json() as AuthResponse<T>
-    return { response, data }
+    return apiRequest<AuthResponse<T>>(`/api${path}`, options)
 }
 
 export const authService = {
